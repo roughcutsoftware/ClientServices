@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="WinUI.NetFx.WPF.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WinUI.NetFx.WPF"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources />
+</Application>

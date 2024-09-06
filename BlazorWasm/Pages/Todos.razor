@@ -1,0 +1,51 @@
+﻿@page "/todos"
+@using ClientServices
+@using ClientServices.Base
+@using ClientServices.Dtos
+@inject ViewModelBase<TodoItemDto> ViewModel
+
+<PageTitle>Todos List</PageTitle>
+
+<h1>Todos List</h1>
+
+<p>Fetching data from the server via ClientServices ViewModel.</p>
+
+@if (todos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>UserId</th>
+                <th>Title</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TodoItemDto todoItem in todos)
+            {
+                <tr>
+                    <td>@todoItem.Id</td>
+                    <td>@todoItem.UserId</td>
+                    <td>@todoItem.Title</td>
+                    <td>@todoItem.CompletedString</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    
+    //
+    private List<TodoItemDto> todos;
+
+    protected override async Task OnInitializedAsync()
+    {
+        todos = await ViewModel.GetListAsync(TodoAction.GetTodos);
+    }
+}
