@@ -21,7 +21,7 @@ namespace MauiDemo
             // cast items into a list of TodoItemDto
             var items = await _viewModel.GetListAsync(TodoAction.GetTodos);
 
-            // assert - check if the items is not null
+            // check if the items is not null
             if (items != null)
             {
                 if (items.Count >= 1)

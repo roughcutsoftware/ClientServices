@@ -30,7 +30,7 @@ namespace ClientServices.Base
             // get the todos list
             var response = await this.RestClient.GetAsync(actionUrl);
 
-            // assert - check if the response is successful
+            // check if the response is successful
             if (response.IsSuccessStatusCode)
             {
                 // get the response content
